@@ -96,15 +96,14 @@
             height: 80px;
         }
 
-        .options-container {  /* bo har 4 buttnaka  */
+        .options-container { 
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-bottom: 20px;
         }
 
-        /*  ama 4 buttonakaya (div) la code htmlda nya
-        xoman la regay JS zyadey akain (line 217 la Java Script)  */
+
         .option {
             background-color: white;
             border: 2px solid var(--primary);
@@ -123,31 +122,20 @@
             transform: translateY(-3px);
         }
 
-        /*  
-        .disabled la html'kaya nya la JavaScriptaka 
-        zyady akain boy (line 265 la javaScript
-        bo away user natwanit aw optiona halbzheret
-        */
+
         .option.disabled {
             opacity: 0.5;
             cursor: not-allowed;
             pointer-events: none;
         }
 
-         /* am bashay classy .correct la line 258 la JavaScripy zyady dakain 
-            bo style walama rastaka
-         */
         .option.correct {
             background-color: var(--success);
             color: white;
             border-color: var(--success);
         }
 
-        /* 
-        amash bahaman shewa la html'akada nya la JS boy zyad dakain
-        line 279 la JS
-        katek user optioney xalat hal dabzheret style (div) optionaka bgoret bama
-         */
+
         .option.wrong {
             background-color: var(--danger);
             color: white;
@@ -310,8 +298,6 @@
             margin: 20px 0;
         }
 
-        /* ama style kotaey yaryakaya animationakay 
-        ka deta xwarawa */
         .confetti {
             position: fixed;
             width: 10px;
@@ -321,7 +307,6 @@
             animation: fall linear forwards;
         }
         
-        /* shewazy animationaka (hatna xwarawa) */
         @keyframes fall {
             to {
                 transform: translateY(100vh) rotate(360deg);
