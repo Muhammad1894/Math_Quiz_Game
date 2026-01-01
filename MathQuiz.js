@@ -25,7 +25,10 @@ const progressElement = document.getElementById("progress");
 const timerElement = document.getElementById("timer");
 const gameOverElement = document.getElementById("game-over");
 const finalScoreElement = document.getElementById("final-score");
+const startButton = document.getElementById("start-btn");
 const restartButton = document.getElementById("restart-btn");
+
+nextButton.classList.add("buttons"); 
 
 function initGame() {
   gameState.score = 0;
@@ -38,6 +41,9 @@ function initGame() {
   updateStats();
   generateProblem();
   startTimer();
+
+  nextButton.classList.remove("buttons");
+  levelSelector.classList.add("buttons");
 
   gameOverElement.style.display = "none";
 }
@@ -296,6 +302,11 @@ nextButton.addEventListener("click", nextProblem);
 
 hintButton.addEventListener("click", () => {
 
+    if(gameState.score < 5) {
+    hintButton.classList.add("disabled");
+    return
+    }
+
   const wrongOptions = Array.from(document.querySelectorAll(".option")).filter(
     (option) =>
 
@@ -312,7 +323,7 @@ hintButton.addEventListener("click", () => {
     gameState.disabledOptions.push(parseFloat(wrongOptions[1].dataset.value));
   }
 
-  gameState.score = -5;
+  gameState.score = gameState.score -=5;
   updateStats();
 });
 
@@ -325,7 +336,16 @@ levelSelector.addEventListener("change", (event) => {
 
 autoSolveButton.addEventListener("click", autoSolve);
 
+startButton.addEventListener("click", () => {
+  startButton.style.display = "none";
+  timerElement.style.display = "block";
+  initGame(); // starts the game + timer
+});
+
 restartButton.addEventListener("click", initGame);
 
-window.addEventListener("load", initGame);
+window.addEventListener("load", () => {
+  timerElement.style.display = "none";
+  startButton.style.display = "inline-block";
+});
 
