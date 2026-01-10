@@ -44,3 +44,9 @@ Auto-solve reveals correct answer
 Progress bar shows completion status
 
 Confetti animation on game completion
+
+# Created by : 
+Muhammad Gharib 
+Sahand Omer 
+Sumaya Yasin
+Sada Muhammad 
